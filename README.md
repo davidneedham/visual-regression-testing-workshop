@@ -27,8 +27,8 @@ After setting up the repository locally (see above) you will need to:
 1. Edit `src/sitesToTest.js`
     * This is where the list of sites to test is stored
     * Try changing to one (or more) of your sites
-    * `BackstopReferenceBaseUrl` is your non-production environment (local, staging, etc.) URL
-    * `BackstopTestUrl` is your production site URL
+    * `nonProductionBaseUrl` is your non-production environment (local, staging, etc.) URL
+    * `productionBaseUrl` is your production site URL
     * Adjust `pathsToTest`, which is the array of URIs to test for each site
 1. Edit `src/backstopConfig.js` to adjust viewports, delay, hidden selectors, etc.
 1. Run the command `npm run build`.
