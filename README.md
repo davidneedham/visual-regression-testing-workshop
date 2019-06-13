@@ -1,6 +1,8 @@
 # Automating your QA with Visual Regression Testing Example Repository
 
-This repository is an example for my talk [Automating your QA with Visual Regression Testing](https://2019.europe.wordcamp.org/session/automating-your-qa-with-visual-regression-testing/) at WordCamp Europe 2019. It uses [BackstopJS](https://github.com/garris/BackstopJS/) and [Node JS](https://nodejs.org/) to automate visual QA. The slides for the talk can be found [here](https://goo.gl/V7QtNw).
+This repository is an example for my talk [Automating your QA with Visual Regression Testing](https://2019.europe.wordcamp.org/session/automating-your-qa-with-visual-regression-testing/) at WordCamp Europe 2019. The slides for the talk can be found [here](https://goo.gl/V7QtNw).
+
+[BackstopJS](https://github.com/garris/BackstopJS/) is used for the visual regression testing. The app itself is built with [Node JS](https://nodejs.org/), [`commander.js`](https://github.com/tj/commander.js/), and [`Inquirer.js`](https://github.com/SBoudrias/Inquirer.js).
 
 ## Prerequisites
 
@@ -21,7 +23,7 @@ After setting up the repository locally (see above) you will need to:
 
 1. Run the command `npm install` to download dependencies
 1. Run the command `npm run start`
-    * Type the number of a site from the list or enter _all_ to test all sites in `src/sitesToTest.js`
+    * Select the site you want to test from the list
 1. Check out the results from the sample test
     * They should open in your browser automatically
 1. Edit `src/sitesToTest.js`
@@ -34,7 +36,7 @@ After setting up the repository locally (see above) you will need to:
 1. Run the command `npm run build`.
     * This command needs to be run anytime you edit items in `src`
 1. Run the command `npm run start`.
-    * To test a single site, enter its number from the list, or enter `all` to test all sites in `src/sitesToTest.js`
+    * Select the site you want to test from the list
 
 **Troubleshooting**
 If you are having issues with the script hanging or BackstopJS taking a long time there may be headless Chrome instances that didn't close properly.

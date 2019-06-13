@@ -34,6 +34,7 @@ export default function backstopConfig(nonProductionBaseUrl, productionBaseUrl, 
         }],
         'paths': {
             'ci_report': `${backstopDataDir}/ci_report`,
+            'json_report': `${backstopDataDir}/json_report`,
             'html_report': `${backstopDataDir}/html_report`,
             'bitmaps_reference': `${backstopDataDir}/bitmaps_reference`,
             'bitmaps_test': `${backstopDataDir}/bitmaps_test`,
@@ -42,7 +43,7 @@ export default function backstopConfig(nonProductionBaseUrl, productionBaseUrl, 
             'engine_scripts': `${backstopDataDir}/engine_scripts`
         },
         'engine': 'puppeteer',
-        'report': ['browser', 'CI'],
+        'report': ['browser', 'json'],
         'casperFlags': [],
         'debug': false,
         'port': 3001

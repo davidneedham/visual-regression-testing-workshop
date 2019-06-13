@@ -1,20 +1,50 @@
+#!/usr/bin/env node
+// External dependencies
 "use strict";
 
-var _visualRegressionTests = _interopRequireDefault(require("./visualRegressionTests"));
+var _commander = _interopRequireDefault(require("commander"));
 
-var _testAllSites = _interopRequireDefault(require("./testAllSites"));
+var _inquirer = _interopRequireDefault(require("inquirer"));
 
-var _minimist = _interopRequireDefault(require("minimist"));
+var _ansiColors = _interopRequireDefault(require("ansi-colors"));
+
+var _visualRegressionTestSite = _interopRequireDefault(require("./visualRegressionTestSite"));
+
+var _sitesToTest = _interopRequireDefault(require("./sitesToTest"));
+
+var _throwError = _interopRequireDefault(require("./throwError"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Local dependencies
-// External dependencies
-const args = (0, _minimist.default)(process.argv.slice(2), {}); // https://nodejs.org/api/process.html#process_process_platform
-// const isWindows = process.platform === "win32";
+// Get the site names
+const siteNames = Object.keys(_sitesToTest.default); // Throw an error if there are not sites defined
 
-if (Object.prototype.hasOwnProperty.call(args, 'all')) {
-  (0, _testAllSites.default)();
+if (siteNames.length === 0) {
+  (0, _throwError.default)(_ansiColors.default.red(`There are no sites defined in the ${_ansiColors.default.grey('sitesToTest.js')} config file`));
+} // Start a new program
+
+
+const program = new _commander.default.Command(); // Set the program version
+
+program.version('1.0.0'); // Allow site name to be passed as an option
+
+program.option('-s, --site [siteName]', 'specifiy a site to be tested'); // Process the arguments
+
+program.parse(process.argv); // If a site was specified, use it
+
+if (program.site) {
+  (0, _visualRegressionTestSite.default)(program.site);
 } else {
-  (0, _visualRegressionTests.default)();
+  // Ask which site should be used
+  _inquirer.default.prompt([{
+    type: 'list',
+    name: 'site',
+    message: 'Which site do you want to test?',
+    choices: siteNames
+  }]).then(answers => {
+    if (Object.prototype.hasOwnProperty.call(answers, 'site')) {
+      (0, _visualRegressionTestSite.default)(answers.site);
+    }
+  });
 }
