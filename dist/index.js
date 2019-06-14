@@ -12,7 +12,7 @@ var _visualRegressionTestSite = _interopRequireDefault(require("./visualRegressi
 
 var _sitesToTest = _interopRequireDefault(require("./sitesToTest"));
 
-var _throwError = _interopRequireDefault(require("./throwError"));
+var _utils = require("./utils");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21,7 +21,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const siteNames = Object.keys(_sitesToTest.default); // Throw an error if there are not sites defined
 
 if (siteNames.length === 0) {
-  (0, _throwError.default)(_ansiColors.default.red(`There are no sites defined in the ${_ansiColors.default.grey('sitesToTest.js')} config file`));
+  (0, _utils.throwError)(_ansiColors.default.red(`There are no sites defined in the ${_ansiColors.default.grey('sitesToTest.js')} config file`));
 } // Start a new program
 
 

@@ -11,7 +11,7 @@ var _fancyLog = _interopRequireDefault(require("fancy-log"));
 
 var _ansiColors = _interopRequireDefault(require("ansi-colors"));
 
-var _throwError = _interopRequireDefault(require("./throwError"));
+var _utils = require("./utils");
 
 var _backstopConfig = _interopRequireDefault(require("./backstopConfig"));
 
@@ -26,9 +26,8 @@ function _default(siteToTest) {
   const siteExists = Object.prototype.hasOwnProperty.call(_sitesToTest.default, siteToTest); // Throw an error if it doesn't
 
   if (!siteExists) {
-    (0, _throwError.default)(_ansiColors.default.red(`${_ansiColors.default.bold(siteToTest)} is not a valid site. Check the name you entered against the ${_ansiColors.default.grey('sitesToTest.js')} config file`));
-  } // Stash the current site
-
+    (0, _utils.throwError)(_ansiColors.default.red(`${_ansiColors.default.bold(siteToTest)} is not a valid site. Check the name you entered against the ${_ansiColors.default.grey('sitesToTest.js')} config file`));
+  }
 
   const site = _sitesToTest.default[siteToTest]; // Stash the site label
 

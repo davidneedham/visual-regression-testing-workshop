@@ -1,6 +1,4 @@
-function untrailingSlashIt(string) {
-    return string.replace(/\/$/, "");
-}
+import {untrailingSlashIt, trailingSlashIt} from './utils';
 
 export default function backstopConfig(nonProductionBaseUrl, productionBaseUrl, pathsToTest, siteName) {
 
@@ -24,8 +22,8 @@ export default function backstopConfig(nonProductionBaseUrl, productionBaseUrl, 
         ],
         'scenarios': [{
             'label': 'Homepage',
-            'url': nonProductionBaseUrl,
-            'referenceUrl': productionBaseUrl,
+            'url': trailingSlashIt(nonProductionBaseUrl),
+            'referenceUrl': trailingSlashIt(productionBaseUrl),
             'hideSelectors': [],
             'selectors': ['document'],
             'readyEvent': null,
@@ -54,8 +52,8 @@ export default function backstopConfig(nonProductionBaseUrl, productionBaseUrl, 
 
         return {
             'label': path,
-            'url': untrailingSlashIt(nonProductionBaseUrl) + path,
-            'referenceUrl': untrailingSlashIt(productionBaseUrl) + path,
+            'url': trailingSlashIt(nonProductionBaseUrl) + untrailingSlashIt(path),
+            'referenceUrl': trailingSlashIt(productionBaseUrl) + untrailingSlashIt(path),
             'hideSelectors': [],
             'selectors': ['document'],
             'readyEvent': null,

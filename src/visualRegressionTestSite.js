@@ -4,7 +4,7 @@ import log from 'fancy-log';
 import colors from 'ansi-colors';
 
 // Local dependencies
-import throwError from './throwError';
+import {throwError} from './utils';
 import backstopConfig from './backstopConfig';
 import sitesToTest from './sitesToTest';
 
@@ -18,7 +18,6 @@ export default function (siteToTest) {
         throwError(colors.red(`${colors.bold(siteToTest)} is not a valid site. Check the name you entered against the ${colors.grey('sitesToTest.js')} config file`));
     }
 
-    // Stash the current site
     const site = sitesToTest[siteToTest];
     
     // Stash the site label

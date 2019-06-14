@@ -8,7 +8,7 @@ import colors from 'ansi-colors';
 // Local dependencies
 import visualRegressionTestSite from './visualRegressionTestSite';
 import sitesToTest from './sitesToTest';
-import throwError from './throwError';
+import {throwError} from './utils';
 
 // Get the site names
 const siteNames = Object.keys(sitesToTest);

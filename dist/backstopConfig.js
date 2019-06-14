@@ -5,9 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = backstopConfig;
 
-function untrailingSlashIt(string) {
-  return string.replace(/\/$/, "");
-}
+var _utils = require("./utils");
 
 function backstopConfig(nonProductionBaseUrl, productionBaseUrl, pathsToTest, siteName) {
   const backstopDataDir = `backstop_data/${siteName}`;
@@ -27,8 +25,8 @@ function backstopConfig(nonProductionBaseUrl, productionBaseUrl, pathsToTest, si
     }],
     'scenarios': [{
       'label': 'Homepage',
-      'url': nonProductionBaseUrl,
-      'referenceUrl': productionBaseUrl,
+      'url': (0, _utils.trailingSlashIt)(nonProductionBaseUrl),
+      'referenceUrl': (0, _utils.trailingSlashIt)(productionBaseUrl),
       'hideSelectors': [],
       'selectors': ['document'],
       'readyEvent': null,
@@ -54,8 +52,8 @@ function backstopConfig(nonProductionBaseUrl, productionBaseUrl, pathsToTest, si
   const scenarios = pathsToTest.map(function (path) {
     return {
       'label': path,
-      'url': untrailingSlashIt(nonProductionBaseUrl) + path,
-      'referenceUrl': untrailingSlashIt(productionBaseUrl) + path,
+      'url': (0, _utils.trailingSlashIt)(nonProductionBaseUrl) + (0, _utils.untrailingSlashIt)(path),
+      'referenceUrl': (0, _utils.trailingSlashIt)(productionBaseUrl) + (0, _utils.untrailingSlashIt)(path),
       'hideSelectors': [],
       'selectors': ['document'],
       'readyEvent': null,
