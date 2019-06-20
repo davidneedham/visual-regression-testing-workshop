@@ -39,13 +39,23 @@ program.parse(process.argv);
 if (program.site) {
     visualRegressionTestSite(program.site);
 } else {
+    // Build the site choices
+    let siteChoices = [];
+
+    for (let [key, value] of Object.entries(sitesToTest)) {
+        siteChoices.push({
+            name: value.label,
+            value: key
+        });
+    }
+
     // Ask which site should be used
     inquirer
         .prompt([{
             type: 'list',
             name: 'site',
             message: 'Which site do you want to test?',
-            choices: siteNames
+            choices: siteChoices
         }])
         .then(answers => {
             if (Object.prototype.hasOwnProperty.call(answers, 'site')) {

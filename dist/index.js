@@ -36,12 +36,22 @@ program.parse(process.argv); // If a site was specified, use it
 if (program.site) {
   (0, _visualRegressionTestSite.default)(program.site);
 } else {
-  // Ask which site should be used
+  // Build the site choices
+  let siteChoices = [];
+
+  for (let [key, value] of Object.entries(_sitesToTest.default)) {
+    siteChoices.push({
+      name: value.label,
+      value: key
+    });
+  } // Ask which site should be used
+
+
   _inquirer.default.prompt([{
     type: 'list',
     name: 'site',
     message: 'Which site do you want to test?',
-    choices: siteNames
+    choices: siteChoices
   }]).then(answers => {
     if (Object.prototype.hasOwnProperty.call(answers, 'site')) {
       (0, _visualRegressionTestSite.default)(answers.site);
