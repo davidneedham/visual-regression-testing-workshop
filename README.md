@@ -15,7 +15,7 @@ You will need:
 
 ### Getting The Code
 
-Either clone this repository using Git or download the [`master` branch `.zip` file](https://github.com/ataylorme/wordcamp-europe-2019-visual-regression-testing-workshop/archive/master.zip).
+Create a new repository from this template and then either using Git clone or download the `.zip` file of your copy.
 
 ## Instructions
 
