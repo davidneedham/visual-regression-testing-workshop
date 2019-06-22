@@ -52,8 +52,8 @@ function backstopConfig(nonProductionBaseUrl, productionBaseUrl, pathsToTest, si
   const scenarios = pathsToTest.map(function (path) {
     return {
       'label': path,
-      'url': (0, _utils.trailingSlashIt)(nonProductionBaseUrl) + (0, _utils.untrailingSlashIt)(path),
-      'referenceUrl': (0, _utils.trailingSlashIt)(productionBaseUrl) + (0, _utils.untrailingSlashIt)(path),
+      'url': (0, _utils.untrailingSlashIt)(nonProductionBaseUrl) + (0, _utils.leadingSlashIt)(path),
+      'referenceUrl': (0, _utils.untrailingSlashIt)(productionBaseUrl) + (0, _utils.leadingSlashIt)(path),
       'hideSelectors': [],
       'selectors': ['document'],
       'readyEvent': null,

@@ -10,3 +10,11 @@ export function untrailingSlashIt(str) {
 export function trailingSlashIt(str) {
     return str.replace(/\/$/, '') + '/';
 }
+
+export function unleadingSlashIt(str) {
+    return str.replace(/^\//, '');
+}
+
+export function leadingSlashIt(str) {
+    return '/' + str.replace(/^\//, '');
+}

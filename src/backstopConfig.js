@@ -1,4 +1,4 @@
-import {untrailingSlashIt, trailingSlashIt} from './utils';
+import {untrailingSlashIt, trailingSlashIt, leadingSlashIt} from './utils';
 
 export default function backstopConfig(nonProductionBaseUrl, productionBaseUrl, pathsToTest, siteName) {
 
@@ -52,8 +52,8 @@ export default function backstopConfig(nonProductionBaseUrl, productionBaseUrl, 
 
         return {
             'label': path,
-            'url': trailingSlashIt(nonProductionBaseUrl) + untrailingSlashIt(path),
-            'referenceUrl': trailingSlashIt(productionBaseUrl) + untrailingSlashIt(path),
+            'url': untrailingSlashIt(nonProductionBaseUrl) + leadingSlashIt(path),
+            'referenceUrl': untrailingSlashIt(productionBaseUrl) + leadingSlashIt(path),
             'hideSelectors': [],
             'selectors': ['document'],
             'readyEvent': null,
