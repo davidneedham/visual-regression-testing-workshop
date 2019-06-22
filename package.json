@@ -24,7 +24,8 @@
   "scripts": {
     "build": "rimraf dist/ && rimraf backstop_data/ && npx babel src/ --out-dir dist/",
     "start": "node dist/index.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "lint-fix": "eslint --fix src"
   },
   "repository": {
     "type": "git",
