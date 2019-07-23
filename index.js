@@ -6,9 +6,9 @@ import inquirer from 'inquirer';
 import colors from 'ansi-colors';
 
 // Local dependencies
-import visualRegressionTestSite from './visualRegressionTestSite';
-import sitesToTest from './sitesToTest';
-import {throwError} from './utils';
+import visualRegressionTestSite from './inc/visualRegressionTestSite';
+import sitesToTest from './inc/sitesToTest';
+import {throwError} from './inc/utils';
 
 // Get the site names
 const siteNames = Object.keys(sitesToTest);
