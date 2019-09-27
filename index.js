@@ -30,7 +30,7 @@ program.version('1.0.0');
 
 // Allow site name to be passed as an option
 program
-    .option('-s, --site [siteName]', 'specifiy a site to be tested');
+    .option('-s, --site [siteName]', 'specify a site to be tested');
 
 // Process the arguments
 program.parse(process.argv);
