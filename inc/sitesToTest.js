@@ -1,4 +1,4 @@
-const sitesToTest = {
+module.exports = {
     "return-to-pantheon-test": {
         label: "Return to Pantheon Test",
         productionBaseUrl: "https://live-return-to-pantheon-test.pantheonsite.io/",
@@ -24,5 +24,3 @@ const sitesToTest = {
         ]
     }
 };
-
-export default sitesToTest;

@@ -1,20 +1,20 @@
-export function throwError(message) {
+exports.throwError = function throwError(message) {
     console.error(message);
     process.exit(0);
-}
+};
 
-export function untrailingSlashIt(str) {
+exports.untrailingSlashIt = function untrailingSlashIt(str) {
     return str.replace(/\/$/, '');
-}
+};
 
-export function trailingSlashIt(str) {
+exports.trailingSlashIt = function trailingSlashIt(str) {
     return str.replace(/\/$/, '') + '/';
-}
+};
 
-export function unleadingSlashIt(str) {
+exports.unleadingSlashIt = function unleadingSlashIt(str) {
     return str.replace(/^\//, '');
-}
+};
 
-export function leadingSlashIt(str) {
+exports.leadingSlashIt = function leadingSlashIt(str) {
     return '/' + str.replace(/^\//, '');
-}
+};

@@ -1,6 +1,8 @@
-import {untrailingSlashIt, trailingSlashIt, leadingSlashIt} from './utils';
+const untrailingSlashIt = require('./utils').untrailingSlashIt;
+const trailingSlashIt = require('./utils').trailingSlashIt;
+const leadingSlashIt = require('./utils').leadingSlashIt;
 
-export default function backstopConfig(nonProductionBaseUrl, productionBaseUrl, pathsToTest, siteName) {
+module.exports = function backstopConfig(nonProductionBaseUrl, productionBaseUrl, pathsToTest, siteName) {
 
     const backstopDataDir = `backstop_data/${siteName}`;
     const delayTime = 1500;
@@ -67,4 +69,4 @@ export default function backstopConfig(nonProductionBaseUrl, productionBaseUrl, 
 
     return config;
 
-}
+};

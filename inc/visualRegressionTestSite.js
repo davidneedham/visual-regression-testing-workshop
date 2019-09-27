@@ -1,14 +1,14 @@
 // External dependencies
-import backstop from 'backstopjs';
-import log from 'fancy-log';
-import colors from 'ansi-colors';
+const backstop = require('backstopjs');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
 
 // Local dependencies
-import {throwError} from './utils';
-import backstopConfig from './backstopConfig';
-import sitesToTest from './sitesToTest';
+const throwError = require('./utils').throwError;
+const backstopConfig = require('./backstopConfig');
+const sitesToTest = require('./sitesToTest');
 
-export default function (siteToTest) {
+module.exports = function (siteToTest) {
 
     // Ensure the selected site exists in the config
     const siteExists = Object.prototype.hasOwnProperty.call(sitesToTest, siteToTest);
@@ -27,7 +27,7 @@ export default function (siteToTest) {
     log(colors.bgYellow(`Running visual regression tests on ${boldLabel}...\n`));
 
     // Generate site specific configuration.
-    const currentConfig = backstopConfig(site.nonProductionBaseUrl, site.productionBaseUrl, site.pathsToTest, site.name);
+    const currentConfig = backstopConfig(site.nonProductionBaseUrl, site.productionBaseUrl, site.pathsToTest, siteToTest);
 
     // Disable logging since BackstopJS is noisy
     // console.log = function () {};
@@ -45,4 +45,4 @@ export default function (siteToTest) {
     }).catch(() => {
         log(colors.bgRed(colors.white(`Backstop JS tests failed for ${site.label}!`)));
     });
-}
+};

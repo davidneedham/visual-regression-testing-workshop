@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 // External dependencies
-import commander from 'commander';
-import inquirer from 'inquirer';
-import colors from 'ansi-colors';
+const commander = require('commander');
+const inquirer = require('inquirer');
+const colors = require('ansi-colors');
 
 // Local dependencies
-import visualRegressionTestSite from './inc/visualRegressionTestSite';
-import sitesToTest from './inc/sitesToTest';
-import {throwError} from './inc/utils';
+const visualRegressionTestSite = require('./inc/visualRegressionTestSite');
+const sitesToTest = require('./inc/sitesToTest');
+const throwError = require('./inc/utils').throwError;
 
 // Get the site names
 const siteNames = Object.keys(sitesToTest);
